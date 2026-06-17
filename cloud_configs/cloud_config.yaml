@@ -1,0 +1,99 @@
+# cloud_config.yaml
+# Central configuration file for the Cloud Development Tools application.
+
+# --- General Application Settings ---
+app:
+  name: "Cloud Development Tools Boilerplate Edition"
+  version: "2.0.0"
+  author: "Development Team"
+  description: "Integrated Azure and GitHub management tools"
+  log_directory: ".cloud_tools/logs"
+  log_filename: "application.log"
+  exit_codes:
+    success: 0
+    critical_error: 1
+    warning: 2
+
+# --- UI and Layout Settings ---
+ui:
+  window:
+    initial_width_ratio: 0.8
+    initial_height_ratio: 0.8
+    min_width_ratio: 0.5
+    min_height_ratio: 0.5
+    min_width_pixels: 800
+    min_height_pixels: 600
+  loading_screen:
+    width_ratio: 0.25
+    min_width: 350
+    max_width: 500
+    aspect_ratio: 2.5
+    scale_base_width: 350.0
+  help_dialog:
+    width: 600
+    height: 400
+  status_bar:
+    progress_bar_length: 200
+  fonts:
+    default_console: ["Courier", 10]
+    help_title: ["Arial", 16, "bold"]
+    nav_section: ['TkDefaultFont', 9, 'bold']
+  timings:
+    periodic_status_check_ms: 30000
+    initial_status_check_delay_ms: 5000
+    image_render_delay_ms: 100
+  dimensions:
+    # Padding/margins used in image thumbnail calculations
+    image_preview_padding: 20
+    min_preview_width: 200
+    min_preview_height: 150
+  treeview_columns:
+    job_monitor:
+      name_width: 200
+      status_width: 100
+      created_width: 150
+    local_files:
+      name_width: 200
+      size_width: 80
+      type_width: 60
+      status_width: 80
+
+# --- API and Backend Settings ---
+api:
+  timeouts:
+    default_http_seconds: 30
+    subprocess_seconds: 10
+    interactive_login_seconds: 180
+  limits:
+    github_search_results: 50
+    text_preview_bytes: 10000
+    text_preview_chars: 500
+    delete_summary_count: 10
+  azure:
+    cli_client_id: "04b07795-8ddb-461a-bbee-02f9e1bf7b46"
+    default_redirect_uri: "http://localhost:8400"
+    storage_account_id_rg_index: 4 
+    blob_upload_concurrency: 4
+  github:
+
+    oauth_client_id: ""
+
+# --- Validation and Business Logic ---
+validation:
+  python_min_version: [3, 8]
+  storage_account_name:
+    min_len: 
+    max_len: 
+  file_patterns:
+    # Default validation pattern for image filenames
+    image_filename: ""
+
+# --- Project selection --- #
+Project_details:
+  Project_Code: ""
+  Internal_Project_Name: ""
+  Project_Execution_Command: "Python tkinter_main.py"
+
+# --- String Parsing Constants ---
+parsing:
+  github_repo_name_offset: 
